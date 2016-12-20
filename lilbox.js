@@ -180,7 +180,10 @@ function cleanupBox () {
     var yesButton = document.getElementById('lilBox-yes-button');
     yesButton.addEventListener('click', function () {
       cleanupBox();
-      confirmed();
+
+      if (typeof confirmed === 'function') {
+        confirmed();
+      }
     });
 
     var noButton = document.getElementById('lilBox-no-button');
@@ -205,7 +208,10 @@ function cleanupBox () {
     var okButton = document.getElementById('lilBox-ok-button');
     okButton.addEventListener('click', function () {
       cleanupBox();
-      okayed();
+
+      if (typeof okayed === 'function') {
+        okayed();
+      }
     });
 
     window.addEventListener('resize', function () {centerLilBox(template);});

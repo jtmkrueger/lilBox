@@ -54,7 +54,7 @@ lilBox.basic('hello world!', {maxWidth: '40%'});
 ```
 ---
 
-`lilBox.confirm(html, confirmed, userOptions) - `confirmed` will need to be a function. Selecting no will clear the lightbox. Here's a simple example:
+`lilBox.confirm(html, confirmed, userOptions)` - `confirmed` will need to be a function, unless you don't want it to do anything in which case it should be `null` or can be ommited if you're not passing in `userOptions`. Clicking the no button will clear the lightbox. Here's a simple example:
 ```
 lilBox.confirm('ready to go to the next slide?', function () {
   console.log('code that advances the slide!');
@@ -69,8 +69,8 @@ lilBox.confirm('ready to go to the next slide?', function () {
 
 ---
 
-`lilBox.ok(html, okayed, userOptions)` - This is essential a "proceed" box with out the choice to close the box or cancel.
-Feel free to just pass in an empty function if you don't want `okayed` to do anything but clear the lilBox. Here's an example:
+`lilBox.ok(html, okayed, userOptions)` - This is essentially a "proceed" box with out the choice to close the box or cancel.
+Feel free to just pass in `null` (or omit it if you're not changing `userOptions`) for `okayed` if you don't to do anything but clear the lilBox. Here's an example:
 ```
 lilBox.ok('Great Job.', function () {
   console.log('you did it');

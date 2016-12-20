@@ -1,0 +1,23 @@
+{
+  "name": "lilbox",
+  "description": "a simple barebones javascript lightbox/alert/confirm/proceed",
+  "main": "lilbox.js",
+  "authors": [{
+    "name": "John Krueger"
+  }],
+  "license": "MIT",
+  "keywords": [
+    "lightbox",
+    "popup",
+    "confirm",
+    "alert"
+  ],
+  "homepage": "https://github.com/jtmkrueger/lilBox",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

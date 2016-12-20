@@ -162,7 +162,7 @@ function cleanupBox () {
 
   };
 
-  lilBox.setOptions = function (userOptions) {
+  lilBox.setDefaults = function (userOptions) {
     config(userOptions);
   };
 

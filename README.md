@@ -19,6 +19,7 @@ So lilBox was created, and it fits the bill.
   yesText: 'Yes', // confirm box yes text
   noText: 'No', // confirm box no text
   opacity: 1.0, // opacity of the lightbox
+  transitionSpeed: '500ms', // speed of opening/closing boxes
 }
 ```
 
@@ -60,4 +61,50 @@ lilBox.ok('Great Job.', function () {
 });
 ```
 
- *TODO* - create a way to globally pass in options.
+## Styles
+
+Here's the styles that come with the lilBox. They're *very* barebones, which gives you the flexibility to do whatever you want to make it fit your page.
+
+```
+#lilBox-background {
+  z-index: 998;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: options.shadow;
+  transition: opacity options.transitionSpeed;
+}
+#lilBox {
+  z-index: 999;
+  padding: 20px;
+  position: fixed;
+  max-width: options.maxWidth;
+  opacity: options.opacity
+}
+#lilBox-content {
+  clear: both;
+}
+#lilBox-close {
+  float: right;
+  cursor: pointer;
+}
+#lilBox-yes-button {
+  float: left;
+  cursor: pointer;
+}
+#lilBox-no-button {
+  float: right;
+  cursor: pointer;
+}
+#lilBox-ok-button {
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+```
+
+## TODO
+
+* create a way to globally pass in options.

@@ -39,6 +39,7 @@
     yesText: 'Yes',
     noText: 'No',
     opacity: 1.0,
+    transitionSpeed: '500ms',
   };
 
 
@@ -56,8 +57,8 @@
       return style.sheet;
     })();
 
-    sheet.insertRule('#lilBox-background {z-index: 998; position: fixed; top: 0; bottom: 0; left: 0; right: 0; ' +
-                     options.shadow + 'background: rgba(0,0,0,0.7); transition: opacity 500ms;}', 0);
+    sheet.insertRule('#lilBox-background {z-index: 998; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: ' +
+                     options.shadow + '; transition: opacity ' + options.transitionSpeed + ';}', 0);
     sheet.insertRule('#lilBox {z-index: 999; padding: 20px; position: fixed; max-width: ' + options.maxWidth + '; opacity: ' +
                      options.opacity + '}', 1);
     sheet.insertRule('#lilBox-content {clear: both;}', 2);

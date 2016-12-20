@@ -30,12 +30,14 @@
   }
 
   var options = {
-    classPrefix: 'lilbox-',
+    classPrefix: 'lilbox-', // not doing anything yet
     shadow: 'rgba(0,0,0,0.7)',
     boxBackgroundColor: 'white',
     maxWidth: '100%',
     color: 'black',
     okText: 'Ok',
+    yesText: 'Yes',
+    noText: 'No',
     opacity: 1.0,
   };
 
@@ -111,13 +113,13 @@ function cleanupBox () {
     template.style.backgroundColor = options.backgroundColor;
 
     var yesButton = document.createElement('div');
-    var yesText = document.createTextNode('Yes');
+    var yesText = document.createTextNode(options.yesText);
     yesButton.id = 'lilBox-yes-button';
     yesButton.appendChild(yesText);
     template.appendChild(yesButton);
 
     var noButton = document.createElement('div');
-    var noText = document.createTextNode('No');
+    var noText = document.createTextNode(options.noText);
     noButton.id = 'lilBox-no-button';
     noButton.appendChild(noText);
     template.appendChild(noButton);

@@ -1,0 +1,22 @@
+{
+  "name": "lilBox",
+  "version": "1.0.0",
+  "description": "a simple barebones javascript lightbox/alert/confirm/proceed",
+  "author": "John Krueger",
+  "contributors": [{
+    "name": "John Krueger"
+  }],
+  "files": [ "lilbox.js", "README.md", "license.txt" ],
+  "main": "lilbox.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jtmkrueger/lilBox"
+  },
+  "keywords": [
+    "lightbox",
+    "popup",
+    "confirm",
+    "alert"
+  ],
+  "license": "MIT"
+}

@@ -30,6 +30,24 @@ to omit them from your function calls.
 
 ---
 
+`lilBox.setOptions(userOptions)` - If you don't want to pass in options every time you set up a new lilBox, this is the way to do it. These options will survive in your instance unless you overwrite them in a lilBox call. Here's an example that just uses the defaults:
+
+```
+var options = {
+  shadow: 'rgba(0,0,0,0.7)',
+  boxBackgroundColor: 'white',
+  maxWidth: '100%',
+  color: 'black',
+  okText: 'Ok',
+  yesText: 'Yes',
+  noText: 'No',
+  opacity: 1.0,
+  transitionSpeed: '500ms',
+};
+
+lilBox.setOptions(options);
+```
+
 `lilBox.basic(html, userOptions)` - This is a very basic lightbox that has an `X` in the corner that will close the box. Here's a simple example:
 ```
 lilBox.basic('hello world!', {maxWidth: '40%'});
@@ -64,6 +82,8 @@ lilBox.ok('Great Job.', function () {
 ## Styles
 
 Here's the styles that come with the lilBox. They're *very* barebones, which gives you the flexibility to do whatever you want to make it fit your page.
+Each time a lilBox is added to the page, these styles are applied, so there's no need to add a new stylesheet to your code. Note: because the styles are
+dynamically added, if you want to override any of these base styles, you'll need to use `!important` rules in your own css.
 
 ```
 #lilBox-background {
@@ -104,7 +124,3 @@ Here's the styles that come with the lilBox. They're *very* barebones, which giv
   cursor: pointer;
 }
 ```
-
-## TODO
-
-* create a way to globally pass in options.

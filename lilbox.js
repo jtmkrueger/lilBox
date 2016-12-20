@@ -162,6 +162,10 @@ function cleanupBox () {
 
   };
 
+  lilBox.setOptions = function (userOptions) {
+    config(userOptions);
+  };
+
   lilBox.confirm = function (html, confirmed, userOptions) {
     if (userOptions !== null) {
       config(userOptions);

@@ -42,7 +42,6 @@
     transitionSpeed: '500ms',
   };
 
-
   function config(userOptions) {
     options = inherit(options, userOptions);
   }
@@ -94,7 +93,7 @@ function cleanupBox () {
 
     template.id = 'lilBox';
     contentBox.id = 'lilBox-content';
-    contentBox.appendChild(content);
+    contentBox.innerHTML(content);
     template.appendChild(contentBox);
 
     return template;

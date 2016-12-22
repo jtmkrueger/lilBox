@@ -79,8 +79,9 @@ function cleanupBox () {
 }
 
   function baseTemplate (html, close) {
-    var template = document.createElement('div');
-    var contentBox = document.createElement('div');
+    var content,
+    template = document.createElement('div'),
+    contentBox = document.createElement('div');
 
     // determine if we're getting a template or a string
     if (typeof html === 'object') {

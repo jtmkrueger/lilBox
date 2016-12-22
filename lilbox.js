@@ -81,7 +81,6 @@ function cleanupBox () {
   function baseTemplate (html, close) {
     var template = document.createElement('div');
     var contentBox = document.createElement('div');
-    var content = document.createTextNode(html);
 
     if (close) {
       var closeBox = document.createElement('div');
@@ -93,7 +92,7 @@ function cleanupBox () {
 
     template.id = 'lilBox';
     contentBox.id = 'lilBox-content';
-    contentBox.innerHTML = content;
+    contentBox.innerHTML = html;
     template.appendChild(contentBox);
 
     return template;

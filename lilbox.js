@@ -93,7 +93,7 @@ function cleanupBox () {
 
     template.id = 'lilBox';
     contentBox.id = 'lilBox-content';
-    contentBox.innerHTML(content);
+    contentBox.innerHTML = content;
     template.appendChild(contentBox);
 
     return template;

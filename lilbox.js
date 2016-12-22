@@ -82,6 +82,13 @@ function cleanupBox () {
     var template = document.createElement('div');
     var contentBox = document.createElement('div');
 
+    // determine if we're getting a template or a string
+    if (typeof html === 'object') {
+      content = html[0].innerHTML;
+    } else {
+      content = html;
+    }
+
     if (close) {
       var closeBox = document.createElement('div');
       var closeButton = document.createTextNode('X');
@@ -92,7 +99,7 @@ function cleanupBox () {
 
     template.id = 'lilBox';
     contentBox.id = 'lilBox-content';
-    contentBox.innerHTML = html;
+    contentBox.innerHTML = content;
     template.appendChild(contentBox);
 
     return template;

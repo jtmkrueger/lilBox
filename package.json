@@ -3,10 +3,16 @@
   "version": "1.0.1",
   "description": "a simple barebones javascript lightbox/alert/confirm/proceed",
   "author": "John Krueger",
-  "contributors": [{
-    "name": "John Krueger"
-  }],
-  "files": [ "lilbox.js", "README.md", "license.txt" ],
+  "contributors": [
+    {
+      "name": "John Krueger"
+    }
+  ],
+  "files": [
+    "lilbox.js",
+    "README.md",
+    "license.txt"
+  ],
   "main": "lilbox.js",
   "repository": {
     "type": "git",

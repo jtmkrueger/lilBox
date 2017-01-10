@@ -29,7 +29,7 @@
     return result;
   }
 
-  var options = {
+  lilBox.options = {
     classPrefix: 'lilbox-', // not doing anything yet
     shadow: 'rgba(0,0,0,0.7)',
     boxBackgroundColor: 'white',
@@ -43,7 +43,7 @@
   };
 
   function config(userOptions) {
-    options = inherit(options, userOptions);
+    lilBox.options = inherit(lilBox.options, userOptions);
   }
 
   function init () {
@@ -57,9 +57,9 @@
     })();
 
     sheet.insertRule('#lilBox-background {z-index: 998; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: ' +
-                     options.shadow + '; transition: opacity ' + options.transitionSpeed + ';}', 0);
-    sheet.insertRule('#lilBox {z-index: 999; padding: 20px; position: fixed; max-width: ' + options.maxWidth + '; opacity: ' +
-                     options.opacity + '}', 1);
+                     lilBox.options.shadow + '; transition: opacity ' + lilBox.options.transitionSpeed + ';}', 0);
+    sheet.insertRule('#lilBox {z-index: 999; padding: 20px; position: fixed; max-width: ' + lilBox.options.maxWidth + '; opacity: ' +
+                     lilBox.options.opacity + '}', 1);
     sheet.insertRule('#lilBox-content {clear: both;}', 2);
     sheet.insertRule('#lilBox-close {float: right; cursor: pointer;}', 3);
     sheet.insertRule('#lilBox-yes-button {float: left; cursor: pointer;}', 4);
@@ -110,23 +110,23 @@ function cleanupBox () {
     var template = baseTemplate(html, true);
     template.style.top = '20px';
     template.style.left = '50%';
-    template.style.backgroundColor = options.backgroundColor;
+    template.style.backgroundColor = lilBox.options.backgroundColor;
 
     return template;
   }
 
   function confirmTemplate (html) {
     var template = baseTemplate(html, false);
-    template.style.backgroundColor = options.backgroundColor;
+    template.style.backgroundColor = lilBox.options.backgroundColor;
 
     var yesButton = document.createElement('div');
-    var yesText = document.createTextNode(options.yesText);
+    var yesText = document.createTextNode(lilBox.options.yesText);
     yesButton.id = 'lilBox-yes-button';
     yesButton.appendChild(yesText);
     template.appendChild(yesButton);
 
     var noButton = document.createElement('div');
-    var noText = document.createTextNode(options.noText);
+    var noText = document.createTextNode(lilBox.options.noText);
     noButton.id = 'lilBox-no-button';
     noButton.appendChild(noText);
     template.appendChild(noButton);
@@ -136,10 +136,10 @@ function cleanupBox () {
 
   function okTemplate (html) {
     var template = baseTemplate(html, false);
-    template.style.backgroundColor = options.backgroundColor;
+    template.style.backgroundColor = lilBox.options.backgroundColor;
 
     var okButton = document.createElement('div');
-    var okText = document.createTextNode(options.okText);
+    var okText = document.createTextNode(lilBox.options.okText);
     okButton.id = 'lilBox-ok-button';
     okButton.appendChild(okText);
     template.appendChild(okButton);
@@ -151,6 +151,12 @@ function cleanupBox () {
     template.style.left = (document.body.offsetWidth / 2) - (template.offsetWidth / 2) + 'px';
     template.style.top = (document.body.offsetHeight / 2) - (template.offsetHeight / 2) + 'px';
   }
+
+  lilBox.setDefaults = function (userOptions) {
+    config(userOptions);
+
+    return lilBox.options;
+  };
 
   lilBox.basic = function (html, userOptions) {
     if (userOptions !== null) {
@@ -166,10 +172,6 @@ function cleanupBox () {
       cleanupBox();
     });
 
-  };
-
-  lilBox.setDefaults = function (userOptions) {
-    config(userOptions);
   };
 
   lilBox.confirm = function (html, confirmed, userOptions) {

@@ -1,31 +1,32 @@
-require('../lilbox.js');
+var lilBox = require('../lilbox.js');
 
 describe("lilBox", function() {
   it ("is loaded", function () {
     expect(lilBox).toBeDefined();
   });
 
-  it("contains spec with an expectation", function() {
-    expect(true).toBe(true);
+  it("has a confirm function", function () {
+    spyOn(lilBox, 'confirm');
+    lilBox.confirm('hello world', function () {return true;});
+    expect(lilBox.confirm).toHaveBeenCalled();
   });
 
-  it("and has a positive case", function() {
-    expect(true).toBe(true);
+  it("has a ok function", function () {
+    spyOn(lilBox, 'ok');
+    lilBox.ok('hello world', function () {return true;});
+    expect(lilBox.ok).toHaveBeenCalled();
   });
 
-  it("and can have a negative case", function() {
-    expect(false).not.toBe(true);
+  it("has a basic function", function () {
+    spyOn(lilBox, 'basic');
+    lilBox.basic('hello world');
+    expect(lilBox.basic).toHaveBeenCalled();
   });
 
-  it("can examine objects", function () {
-    var foo = {
-      a: 12,
-      b: 34
-    };
-    var bar = {
-      a: 12,
-      b: 34
-    };
-    expect(foo).toEqual(bar);
+  it("allows changing the defaults", function () {
+    var originalColor = lilBox.options.color;
+    
+    lilBox.setDefaults({color: 'blue'});
+    expect(lilBox.options.color).toEqual('blue');
   });
 });

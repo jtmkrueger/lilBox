@@ -2,7 +2,6 @@
 a simple barebones javascript lightbox/alert/confirm/proceed
 
 ## Why another lightbox?
-I've seen em all out there. They do everything, they come all styled, they have a bunch of prebuilt functionality.
 I just want something super barebones that I can customize on my own without having to do a bunch of style overrides.
 So lilBox was created, and it fits the bill.
 

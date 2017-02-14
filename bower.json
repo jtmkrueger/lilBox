@@ -1,6 +1,6 @@
 {
   "name": "lilbox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple barebones javascript lightbox/alert/confirm/proceed",
   "main": "lilbox.js",
   "authors": [{

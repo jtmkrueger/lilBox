@@ -135,14 +135,12 @@ function cleanupBox () {
     var template = baseTemplate(html, true);
     template.style.top = '20px';
     template.style.left = '50%';
-    template.style.backgroundColor = lilBox.options.backgroundColor;
 
     return template;
   }
 
   function confirmTemplate (html) {
     var template = baseTemplate(html, false);
-    template.style.backgroundColor = lilBox.options.backgroundColor;
 
     var yesButton = document.createElement('div');
     var yesText = document.createTextNode(lilBox.options.yesText);

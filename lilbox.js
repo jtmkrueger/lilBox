@@ -159,7 +159,6 @@ function cleanupBox () {
 
   function okTemplate (html) {
     var template = baseTemplate(html, false);
-    template.style.backgroundColor = lilBox.options.backgroundColor;
 
     var okButton = document.createElement('div');
     var okText = document.createTextNode(lilBox.options.okText);

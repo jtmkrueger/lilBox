@@ -62,7 +62,7 @@
     sheet.insertRule('#lilBox-background {z-index: 998; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: ' +
                      lilBox.options.shadow + '; transition: opacity ' + lilBox.options.transitionSpeed + ';}', 0);
     sheet.insertRule('#lilBox {z-index: 999; padding: 20px; position: fixed; max-width: ' + lilBox.options.maxWidth + '; opacity: ' +
-                     lilBox.options.opacity + '}', 1);
+                     lilBox.options.opacity + '; color: ' + lilBox.options.color + '; background-color: ' + lilBox.options.boxBackgroundColor ';}', 1);
     sheet.insertRule('#lilBox-content {clear: both;}', 2);
     sheet.insertRule('#lilBox-close {float: right; cursor: pointer;}', 3);
     sheet.insertRule('#lilBox-yes-button {float: left; cursor: pointer;}', 4);

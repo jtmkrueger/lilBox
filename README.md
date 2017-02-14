@@ -19,6 +19,7 @@ So lilBox was created, and it fits the bill.
   noText: 'No', // confirm box no text
   opacity: 1.0, // opacity of the lightbox
   transitionSpeed: '500ms', // speed of opening/closing boxes
+  attachTo: 'body', // what element lilBox attaches to when instantiated
 }
 ```
 
@@ -42,6 +43,7 @@ var options = {
   noText: 'No',
   opacity: 1.0,
   transitionSpeed: '500ms',
+  attachTo: 'body',
 };
 
 lilBox.setDefaults(options);

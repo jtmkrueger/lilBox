@@ -14,7 +14,9 @@
     }
   }
 
-}(function(lilBox) {'use strict';
+} (function(lilBox) {'use strict';
+  // this is what attachTo will set on init
+  var container;
 
   function inherit(parent, obj) {
     var result = {}, key;
@@ -40,6 +42,7 @@
     noText: 'No',
     opacity: 1.0,
     transitionSpeed: '500ms',
+    attachTo: 'body',
   };
 
   function config(userOptions) {
@@ -69,7 +72,29 @@
     var background = document.createElement('div');
     background.id = 'lilBox-background';
 
-    document.body.appendChild(background);
+    if (lilBox.options.attachTo == 'body') {
+      container = document.body;
+    } else {
+      var parts = lilBox.options.attachTo.match(/(.+?(?=#|\.))|([^#|.]+$)|(#|.)/g);
+
+      if (parts[0].match(/\w*/)) {
+        container = document.getElementsByTagName(parts[0]);
+      } else {
+        if (parts[0] === '.') {
+          container = document.getElementsByClassName(parts[1])[0];
+        } else if (parts[0] === '#') {
+          container = document.getElementById(parts[1]);
+        }
+      }
+
+      if (parts[1] === '.') {
+        container = container.getElementsByClassName(parts[2]);
+      } else if (parts[1] === '#') {
+        container = container.getElementById(parts[2]);
+      }
+    }
+
+    container.appendChild(background);
   }
 
 function cleanupBox () {
@@ -148,8 +173,8 @@ function cleanupBox () {
   }
 
   function centerLilBox (template) {
-    template.style.left = (document.body.offsetWidth / 2) - (template.offsetWidth / 2) + 'px';
-    template.style.top = (document.body.offsetHeight / 2) - (template.offsetHeight / 2) + 'px';
+    template.style.left = (container.offsetWidth / 2) - (template.offsetWidth / 2) + 'px';
+    template.style.top = (container.offsetHeight / 2) - (template.offsetHeight / 2) + 'px';
   }
 
   lilBox.setDefaults = function (userOptions) {
@@ -165,7 +190,7 @@ function cleanupBox () {
 
     init();
 
-    document.body.appendChild(basicTemplate(html));
+    container.appendChild(basicTemplate(html));
 
     var closeBox = document.getElementById('lilBox-close');
     closeBox.addEventListener('click', function () {
@@ -181,7 +206,7 @@ function cleanupBox () {
     init();
 
     var template = confirmTemplate(html);
-    document.body.appendChild(template);
+    container.appendChild(template);
 
     centerLilBox (template);
 
@@ -209,7 +234,7 @@ function cleanupBox () {
     init();
 
     var template = okTemplate(html);
-    document.body.appendChild(template);
+    container.appendChild(template);
 
     centerLilBox (template);
 

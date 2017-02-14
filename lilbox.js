@@ -192,8 +192,11 @@ function cleanupBox () {
 
     container.appendChild(basicTemplate(html));
 
-    var closeBox = document.getElementById('lilBox-close');
-    closeBox.addEventListener('click', function () {
+    document.getElementById('lilBox-close').addEventListener('click', function () {
+      cleanupBox();
+    });
+
+    document.getElementById('lilBox-background').addEventListener('click', function () {
       cleanupBox();
     });
 

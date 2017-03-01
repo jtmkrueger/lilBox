@@ -19,7 +19,7 @@ So lilBox was created, and it fits the bill.
   noText: 'No', // confirm box no text
   opacity: 1.0, // opacity of the lightbox
   transitionSpeed: '500ms', // speed of opening/closing boxes
-  attachTo: 'body', // what element lilBox attaches to when instantiated
+  attachTo: 'body', // what element lilBox attaches to when instantiated. This can be a selector and/or an id or class
 }
 ```
 

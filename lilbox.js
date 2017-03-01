@@ -77,14 +77,12 @@
     } else {
       var parts = lilBox.options.attachTo.match(/(.+?(?=#|\.))|([^#|.]+$)|(#|.)/g);
 
-      if (parts[0].match(/\w*/)) {
-        container = document.getElementsByTagName(parts[0]);
+      if (parts[0] === '.') {
+        container = document.getElementsByClassName(parts[1])[0];
+      } else if (parts[0] === '#') {
+        container = document.getElementById(parts[1]);
       } else {
-        if (parts[0] === '.') {
-          container = document.getElementsByClassName(parts[1])[0];
-        } else if (parts[0] === '#') {
-          container = document.getElementById(parts[1]);
-        }
+        container = document.getElementsByTagName(parts[0]);
       }
 
       if (parts[1] === '.') {

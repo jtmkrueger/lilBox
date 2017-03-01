@@ -43,6 +43,8 @@
     opacity: 1.0,
     transitionSpeed: '500ms',
     attachTo: 'body',
+    offsetTop: 0,
+    offsetRight: 0,
   };
 
   function config(userOptions) {
@@ -168,8 +170,8 @@ function cleanupBox () {
   }
 
   function centerLilBox (template) {
-    template.style.left = (container.offsetWidth / 2) - (template.offsetWidth / 2) + 'px';
-    template.style.top = (container.offsetHeight / 2) - (template.offsetHeight / 2) + 'px';
+    template.style.left = (container.offsetWidth / 2) - (template.offsetWidth / 2) + lilBox.options.offsetRight + 'px';
+    template.style.top = (container.offsetHeight / 2) - (template.offsetHeight / 2) + lilBox.options.offsetTop + 'px';
   }
 
   lilBox.setDefaults = function (userOptions) {

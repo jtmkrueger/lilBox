@@ -82,6 +82,10 @@ lilBox.ok('Great Job.', function () {
 });
 ```
 
+---
+
+`lilBox.clear()` - This will get rid of all lilBox content anywhere. Useful if you need to override something in a particular situation or if a lilBox gets orphaned.
+
 ## Styles
 
 Here's the styles that come with the lilBox. They're *very* barebones, which gives you the flexibility to do whatever you want to make it fit your page.

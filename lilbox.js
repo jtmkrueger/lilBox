@@ -57,6 +57,7 @@
       var style = document.createElement('style');
       style.appendChild(document.createTextNode('')); // WebKit hack :(
       style.id = 'lilBox-styles';
+      style.className += 'lilboxes-stuff';
       document.head.appendChild(style);
       return style.sheet;
     })();
@@ -73,6 +74,7 @@
 
     var background = document.createElement('div');
     background.id = 'lilBox-background';
+    background.className += 'lilboxes-stuff';
 
     if (lilBox.options.attachTo == 'body') {
       container = document.body;
@@ -98,9 +100,11 @@
   }
 
 function cleanupBox () {
-  document.getElementById('lilBox-styles').remove();
-  document.getElementById('lilBox').remove();
-  document.getElementById('lilBox-background').remove();
+  var lilBoxesStuff = document.getElementsByClassName('lilboxes-stuff');
+
+  while(lilBoxesStuff[0]) {
+    lilBoxesStuff[0].parentNode.removeChild(lilBoxesStuff[0]);
+  }
 }
 
   function baseTemplate (html, close) {
@@ -124,7 +128,9 @@ function cleanupBox () {
     }
 
     template.id = 'lilBox';
+    template.className += 'lilboxes-stuff';
     contentBox.id = 'lilBox-content';
+    contentBox.className += 'lilboxes-stuff';
     contentBox.innerHTML = content;
     template.appendChild(contentBox);
 
@@ -249,6 +255,10 @@ function cleanupBox () {
 
     window.addEventListener('resize', function () {centerLilBox(template);});
   };
+
+  lilBox.clear = function () {
+    cleanupBox();
+  }
 
   return lilBox;
 }));
